@@ -3,10 +3,8 @@ import { useTrends } from './hooks/useTrends.js';
 import { useArticles } from './hooks/useArticles.js';
 import { LoadingSpinner } from './components/LoadingSpinner.jsx';
 import { HeroSection } from './components/HeroSection.jsx';
-import { TrendingChart } from './components/TrendingChart.jsx';
 import { LatestNews } from './components/LatestNews.jsx';
 import { ArticleGrid } from './components/ArticleGrid.jsx';
-import { InsightsPanel } from './components/InsightsPanel.jsx';
 import { CategorySection } from './components/CategorySection.jsx';
 import { AnalysisDashboard } from './components/AnalysisDashboard.jsx';
 
@@ -113,29 +111,17 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'trending' && (
           <>
-            {/* Hero + Sidebar Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {/* Hero Section */}
-              <div className="lg:col-span-2">
-                <HeroSection article={featuredArticle} />
-                
-                {/* Top Stories Grid */}
-                <div className="mt-8">
-                  <h2 className="text-2xl font-black text-white mb-6 flex items-center gap-3">
-                    <span className="w-1 h-8 bg-[#00D084]"></span>
-                    TOP STORIES
-                  </h2>
-                  <ArticleGrid articles={topArticles} />
-                </div>
-              </div>
-
-              {/* Sidebar */}
-              <div className="space-y-8">
-                {/* AI Insights Panel */}
-                <InsightsPanel insights={insights} articles={articles} />
-
-                {/* Trending Chart */}
-                <TrendingChart trends={trends} />
+            {/* Hero Section */}
+            <div className="mb-12">
+              <HeroSection article={featuredArticle} />
+              
+              {/* Top Stories Grid */}
+              <div className="mt-8">
+                <h2 className="text-2xl font-black text-white mb-6 flex items-center gap-3">
+                  <span className="w-1 h-8 bg-[#00D084]"></span>
+                  TOP STORIES
+                </h2>
+                <ArticleGrid articles={topArticles} />
               </div>
             </div>
 

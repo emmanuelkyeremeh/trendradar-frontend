@@ -4,8 +4,8 @@
 export function TrendingChart({ trends, expanded = false }) {
   if (!trends || trends.length === 0) {
     return (
-      <div className="bg-[#111] rounded-xl p-6 border border-gray-800">
-        <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide">
+      <div className="bg-[#111] rounded-xl p-6 border border-gray-800 flex flex-col h-[600px]">
+        <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide flex-shrink-0">
           TRENDING
         </h3>
         <p className="text-gray-500 text-sm">No trending topics yet</p>
@@ -16,12 +16,12 @@ export function TrendingChart({ trends, expanded = false }) {
   const displayTrends = expanded ? trends : trends.slice(0, 5);
 
   return (
-    <div className="bg-[#111] rounded-xl p-6 border border-gray-800">
-      <h3 className="text-xl font-black text-white mb-6 uppercase tracking-wide">
+    <div className="bg-[#111] rounded-xl p-6 border border-gray-800 flex flex-col h-[600px]">
+      <h3 className="text-xl font-black text-white mb-6 uppercase tracking-wide flex-shrink-0">
         TRENDING
       </h3>
 
-      <div className="space-y-4">
+      <div className="space-y-4 overflow-y-auto flex-1 pr-2">
         {displayTrends.map((trend, index) => (
           <div key={trend.topic} className="flex items-center gap-4">
             {/* Rank */}
@@ -63,7 +63,7 @@ export function TrendingChart({ trends, expanded = false }) {
       </div>
 
       {!expanded && trends.length > 5 && (
-        <div className="mt-4 pt-4 border-t border-gray-800 text-center">
+        <div className="mt-4 pt-4 border-t border-gray-800 text-center flex-shrink-0">
           <span className="text-xs text-gray-500">
             +{trends.length - 5} more topics
           </span>
